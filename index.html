@@ -42,7 +42,24 @@
       radial-gradient(50rem 28rem at 5% 110%, rgba(16,185,129,.14), transparent 60%),
       linear-gradient(180deg,#F0F9FF 0%,#FFFFFF 100%);
   }
+  @media (max-width:1023px){
+    .hero-bg{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.4) 38%, rgba(255,255,255,.85) 64%, #FFFFFF 88%),
+        url('images/hero-cinematic.jpg');
+      background-size: cover, cover;
+      background-position: center, top center;
+      background-repeat: no-repeat, no-repeat;
+    }
+  }
   .dot-grid{ background-image:radial-gradient(rgba(14,165,233,.22) 1.3px, transparent 1.3px); background-size:22px 22px; }
+
+  /* ===== CTA continuous motion ===== */
+  .cta-bounce{ animation: cta-bounce 2.4s ease-in-out infinite; will-change: transform, box-shadow; }
+  @keyframes cta-bounce{
+    0%,100%{ transform: translateY(0) scale(1); box-shadow: 0 12px 24px -8px rgba(16,185,129,.45); }
+    50%{ transform: translateY(-7px) scale(1.035); box-shadow: 0 22px 34px -10px rgba(16,185,129,.6); }
+  }
 
   /* steam puffs */
   .steam{ position:absolute; bottom:18%; width:14px; height:14px; border-radius:50%; background:rgba(255,255,255,.85); filter:blur(6px); opacity:0; animation:steam 3.6s ease-in-out infinite; }
@@ -192,7 +209,7 @@
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-10 items-center relative">
     <!-- Text -->
-    <div class="reveal">
+    <div class="reveal flex flex-col items-center text-center lg:items-start lg:text-start">
       <span class="inline-flex items-center gap-2 bg-white border border-sky-100 text-sky-700 font-bold text-xs sm:text-sm px-4 py-2 rounded-full shadow-sm">
         <i class="fa-solid fa-award text-emerald-500"></i>
         <span data-ar="خدمة التنظيف بالبخار الأولى في طنجة" data-fr="Le service n°1 de nettoyage vapeur à Tanger">خدمة التنظيف بالبخار الأولى في طنجة</span>
@@ -208,8 +225,8 @@
         <span data-ar="في إيكو كلين طنجة نعيد الحياة لكنبك وسجادك ومراتبك وسيارتك ببخار حراري بدرجة 170° يقتل الجراثيم دون أي مواد كيميائية ضارة — وفريقنا يصل إليك أينما كنت في طنجة." data-fr="Chez Eco Clean Tanger, nous redonnons vie à vos canapés, tapis, matelas et véhicules grâce à une vapeur à 170° qui élimine les germes sans produits chimiques — notre équipe se déplace chez vous, partout à Tanger.">في إيكو كلين طنجة نعيد الحياة لكنبك وسجادك ومراتبك وسيارتك ببخار حراري بدرجة 170° يقتل الجراثيم دون أي مواد كيميائية ضارة — وفريقنا يصل إليك أينما كنت في طنجة.</span>
       </p>
 
-      <div class="flex flex-wrap items-center gap-4 mt-8">
-        <a href="#booking" class="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-extrabold px-7 py-4 rounded-full shadow-xl shadow-emerald-500/30 hover:-translate-y-1 hover:shadow-emerald-500/50 transition-all">
+      <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 mt-8">
+        <a href="#booking" class="cta-bounce inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-extrabold px-7 py-4 rounded-full shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-colors">
           <i class="fa-solid fa-calendar-check text-xl"></i><span data-ar="احجز الآن" data-fr="Réserver maintenant">احجز الآن</span>
         </a>
         <a href="#services" class="inline-flex items-center gap-2.5 bg-white text-sky-600 border-2 border-sky-100 hover:border-sky-400 font-extrabold px-7 py-[14px] rounded-full hover:-translate-y-1 transition-all">
@@ -219,7 +236,7 @@
       </div>
 
       <!-- trust row -->
-      <div class="flex items-center gap-4 mt-8">
+      <div class="flex justify-center lg:justify-start items-center gap-4 mt-8">
         <div class="flex -space-x-3 rtl:space-x-reverse">
           <span class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center font-extrabold border-2 border-white">أ</span>
           <span class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-extrabold border-2 border-white">س</span>
@@ -234,7 +251,7 @@
     </div>
 
     <!-- Image -->
-    <div class="reveal relative" style="transition-delay:.15s">
+    <div class="reveal relative hidden lg:block" style="transition-delay:.15s">
       <div class="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-sky-900/20 border-4 border-white">
         <img src="images/hero-sofa.jpg" alt="تنظيف كنب بالبخار في طنجة" class="w-full h-[320px] sm:h-[420px] lg:h-[500px] object-cover">
         <span class="steam" style="inset-inline-start:30%"></span>
